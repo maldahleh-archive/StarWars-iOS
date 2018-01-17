@@ -13,6 +13,9 @@
 		4A03F767200F11240066EA42 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F766200F11240066EA42 /* Transport.swift */; };
 		4A03F76C200F19A10066EA42 /* JSONDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F76B200F19A10066EA42 /* JSONDownloader.swift */; };
 		4A03F76E200F19C90066EA42 /* JSONError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F76D200F19C90066EA42 /* JSONError.swift */; };
+		4AAA5A14200F1D2600320613 /* SWAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA5A13200F1D2600320613 /* SWAPIClient.swift */; };
+		4AAA5A17200F1D7B00320613 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA5A16200F1D7B00320613 /* Endpoint.swift */; };
+		4AAA5A19200F1DB900320613 /* SWAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA5A18200F1DB900320613 /* SWAPIEndpoint.swift */; };
 		4AC2EBFD200ECA4500394A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2EBFC200ECA4500394A37 /* AppDelegate.swift */; };
 		4AC2EBFF200ECA4500394A37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2EBFE200ECA4500394A37 /* ViewController.swift */; };
 		4AC2EC02200ECA4500394A37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2EC00200ECA4500394A37 /* Main.storyboard */; };
@@ -27,6 +30,9 @@
 		4A03F766200F11240066EA42 /* Transport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
 		4A03F76B200F19A10066EA42 /* JSONDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDownloader.swift; sourceTree = "<group>"; };
 		4A03F76D200F19C90066EA42 /* JSONError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONError.swift; sourceTree = "<group>"; };
+		4AAA5A13200F1D2600320613 /* SWAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIClient.swift; sourceTree = "<group>"; };
+		4AAA5A16200F1D7B00320613 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		4AAA5A18200F1DB900320613 /* SWAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIEndpoint.swift; sourceTree = "<group>"; };
 		4AC2EBF9200ECA4500394A37 /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC2EBFC200ECA4500394A37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC2EBFE200ECA4500394A37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,10 +92,29 @@
 		4A03F76A200F17EC0066EA42 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				4AAA5A15200F1D7100320613 /* Endpoint */,
+				4AAA5A12200F1D1600320613 /* SWAPI */,
 				4A03F76B200F19A10066EA42 /* JSONDownloader.swift */,
 				4A03F76D200F19C90066EA42 /* JSONError.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		4AAA5A12200F1D1600320613 /* SWAPI */ = {
+			isa = PBXGroup;
+			children = (
+				4AAA5A13200F1D2600320613 /* SWAPIClient.swift */,
+			);
+			path = SWAPI;
+			sourceTree = "<group>";
+		};
+		4AAA5A15200F1D7100320613 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				4AAA5A16200F1D7B00320613 /* Endpoint.swift */,
+				4AAA5A18200F1DB900320613 /* SWAPIEndpoint.swift */,
+			);
+			path = Endpoint;
 			sourceTree = "<group>";
 		};
 		4AC2EBF0200ECA4500394A37 = {
@@ -198,9 +223,12 @@
 				4A03F760200ECB120066EA42 /* Vehicle.swift in Sources */,
 				4A03F767200F11240066EA42 /* Transport.swift in Sources */,
 				4A03F764200F10C20066EA42 /* Starship.swift in Sources */,
+				4AAA5A19200F1DB900320613 /* SWAPIEndpoint.swift in Sources */,
+				4AAA5A17200F1D7B00320613 /* Endpoint.swift in Sources */,
 				4AC2EBFF200ECA4500394A37 /* ViewController.swift in Sources */,
 				4A03F762200F0D910066EA42 /* Person.swift in Sources */,
 				4A03F76E200F19C90066EA42 /* JSONError.swift in Sources */,
+				4AAA5A14200F1D2600320613 /* SWAPIClient.swift in Sources */,
 				4AC2EBFD200ECA4500394A37 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
