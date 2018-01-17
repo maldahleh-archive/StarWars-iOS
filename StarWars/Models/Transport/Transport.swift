@@ -1,19 +1,17 @@
 //
-//  Vehicle.swift
+//  Transport.swift
 //  StarWars
 //
-//  Created by Mohammed Al-Dahleh on 2018-01-16.
+//  Created by Mohammed Al-Dahleh on 2018-01-17.
 //  Copyright © 2018 Mohammed Al-Dahleh. All rights reserved.
 //
 
 import Foundation
 
-typealias JSON = [String: AnyObject]
-
-struct Vehicle {
+class Transport {
     let name: String
     let model: String
-    let vehicleClass: String
+    var transportClass: String? = nil
     let manufacturer: String
     let consumables: String
     
@@ -27,14 +25,11 @@ struct Vehicle {
     let creditCost: Int
     
     let pilotsUrls: [String]
-}
-
-extension Vehicle {
+    
     init?(json: JSON) {
         struct Keys {
             static let Name = "name"
             static let Model = "model"
-            static let VehicleClass = "vehicle_class"
             static let Manufacturer = "manufacturer"
             static let Length = "length"
             static let CreditsCost = "cost_in_credits"
@@ -46,10 +41,9 @@ extension Vehicle {
             static let Pilots = "pilots"
         }
         
-        if let name = json[Keys.Name] as? String, let model = json[Keys.Model] as? String, let vehicleClass = json[Keys.VehicleClass] as? String, let manufacturer = json[Keys.Manufacturer] as? String, let consumables = json[Keys.Consumables] as? String, let length = json[Keys.Length] as? Double, let maxAtmosphericSpeed = json[Keys.MaxSpeed] as? Int, let cargoCapacity = json[Keys.CargoCapacity] as? Double, let crew = json[Keys.Crew] as? Int, let passengers = json[Keys.Passengers] as? Int, let creditCost = json[Keys.CreditsCost] as? Int, let pilots = json[Keys.Pilots] as? [String] {
+        if let name = json[Keys.Name] as? String, let model = json[Keys.Model] as? String, let manufacturer = json[Keys.Manufacturer] as? String, let consumables = json[Keys.Consumables] as? String, let length = json[Keys.Length] as? Double, let maxAtmosphericSpeed = json[Keys.MaxSpeed] as? Int, let cargoCapacity = json[Keys.CargoCapacity] as? Double, let crew = json[Keys.Crew] as? Int, let passengers = json[Keys.Passengers] as? Int, let creditCost = json[Keys.CreditsCost] as? Int, let pilots = json[Keys.Pilots] as? [String] {
             self.name = name
             self.model = model
-            self.vehicleClass = vehicleClass
             self.manufacturer = manufacturer
             self.consumables = consumables
             
