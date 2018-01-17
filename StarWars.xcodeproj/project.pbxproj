@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A03F760200ECB120066EA42 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F75F200ECB120066EA42 /* Vehicle.swift */; };
+		4A03F762200F0D910066EA42 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F761200F0D910066EA42 /* Person.swift */; };
 		4AC2EBFD200ECA4500394A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2EBFC200ECA4500394A37 /* AppDelegate.swift */; };
 		4AC2EBFF200ECA4500394A37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2EBFE200ECA4500394A37 /* ViewController.swift */; };
 		4AC2EC02200ECA4500394A37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2EC00200ECA4500394A37 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		4A03F75F200ECB120066EA42 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		4A03F761200F0D910066EA42 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		4AC2EBF9200ECA4500394A37 /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC2EBFC200ECA4500394A37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC2EBFE200ECA4500394A37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 		4A03F75E200ECAFD0066EA42 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4A03F761200F0D910066EA42 /* Person.swift */,
 				4A03F75F200ECB120066EA42 /* Vehicle.swift */,
 			);
 			path = Models;
@@ -149,6 +152,7 @@
 			files = (
 				4A03F760200ECB120066EA42 /* Vehicle.swift in Sources */,
 				4AC2EBFF200ECA4500394A37 /* ViewController.swift in Sources */,
+				4A03F762200F0D910066EA42 /* Person.swift in Sources */,
 				4AC2EBFD200ECA4500394A37 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
