@@ -15,34 +15,99 @@ class DataProvider {
     
     private var people: [Person] = []
     private var vehicles: [Vehicle] = []
-    private var starship: [Starship] = []
+    private var starships: [Starship] = []
     
-    func getData(for model: Model, completion: @escaping DataCompletionHandler) {
-        if model is Person {
-            if !people.isEmpty {
-                completion(people, nil)
-                return
-            }
-            
-            // TODO: Not downloaded, attempt to download from API
+    func getData<T: Model>(for model: T.Type, completion: @escaping DataCompletionHandler) {
+        if model is Person.Type && !people.isEmpty {
+            completion(people, nil)
+            return
         }
         
-        if model is Vehicle {
-            if !vehicles.isEmpty {
-                completion(vehicles, nil)
-                return
-            }
-            
-            // TODO: Not downloaded, attempt to download from API
+        if model is Vehicle.Type && !vehicles.isEmpty {
+            completion(vehicles, nil)
+            return
         }
         
-        if model is Starship {
-            if !starship.isEmpty {
-                completion(starship, nil)
-                return
-            }
+        if model is Starship.Type && !starships.isEmpty {
+            completion(starships, nil)
+            return
+        }
+        
+        downloadFor(page: 1, withModel: model, onCompletion: completion)
+    }
+    
+    private func downloadFor<T: Model>(page: Int, withModel model: T.Type, onCompletion completion: @escaping DataCompletionHandler) {
+        var endpoint: SWAPIPaged!
+        
+        if model is Person.Type {
+            endpoint = SWAPIPaged.people(page: page)
             
-            // TODO: Not downloaded, attempt to download from API
+            client.downloadData(for: endpoint) { result, error in
+                guard let result = result else {
+                    completion(nil, error)
+                    return
+                }
+                
+                for jsonResult in result.jsonResults {
+                    if let person = Person(json: jsonResult) {
+                        self.people.append(person)
+                    } else {
+                        completion(nil, .invalidData)
+                    }
+                }
+                
+                if self.people.count != result.totalObjects {
+                    self.downloadFor(page: page + 1, withModel: model, onCompletion: completion)
+                } else {
+                    completion(self.people, nil)
+                }
+            }
+        } else if model is Vehicle.Type {
+            endpoint = SWAPIPaged.vehicles(page: page)
+            
+            client.downloadData(for: endpoint) { result, error in
+                guard let result = result else {
+                    completion(nil, error)
+                    return
+                }
+                
+                for jsonResult in result.jsonResults {
+                    if let vehicle = Vehicle(json: jsonResult) {
+                        self.vehicles.append(vehicle)
+                    } else {
+                        completion(nil, .invalidData)
+                    }
+                }
+                
+                if self.vehicles.count != result.totalObjects {
+                    self.downloadFor(page: page + 1, withModel: model, onCompletion: completion)
+                } else {
+                    completion(self.vehicles, nil)
+                }
+            }
+        } else if model is Starship.Type {
+            endpoint = SWAPIPaged.starships(page: page)
+            
+            client.downloadData(for: endpoint) { result, error in
+                guard let result = result else {
+                    completion(nil, error)
+                    return
+                }
+                
+                for jsonResult in result.jsonResults {
+                    if let starship = Starship(json: jsonResult) {
+                        self.starships.append(starship)
+                    } else {
+                        completion(nil, .invalidData)
+                    }
+                }
+                
+                if self.starships.count != result.totalObjects {
+                    self.downloadFor(page: page + 1, withModel: model, onCompletion: completion)
+                } else {
+                    completion(self.starships, nil)
+                }
+            }
         }
     }
 }
