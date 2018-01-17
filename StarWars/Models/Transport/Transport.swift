@@ -6,7 +6,7 @@
 //  Copyright © 2018 Mohammed Al-Dahleh. All rights reserved.
 //
 
-class Transport {
+class Transport: Model {
     let name: String
     let model: String
     var transportClass: String? = nil
