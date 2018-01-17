@@ -6,6 +6,4 @@
 //  Copyright © 2018 Mohammed Al-Dahleh. All rights reserved.
 //
 
-protocol Model {
-    
-}
+protocol Model {}

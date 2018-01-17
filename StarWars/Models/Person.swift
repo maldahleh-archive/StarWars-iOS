@@ -47,8 +47,8 @@ extension Person {
             self.birthYear = birthYear
             self.gender = gender != Keys.DoesNotExist ? gender : nil
             
-            self.height = Int(height) != nil ? Int(height)! : nil
-            self.mass = Int(mass) != nil ? Int(mass)! : nil
+            self.height = Int(height)
+            self.mass = Int(mass)
             
             self.hairColour = hairColour != Keys.DoesNotExist ? hairColour : nil
             self.eyeColour = eyeColour != Keys.DoesNotExist ? eyeColour : nil
