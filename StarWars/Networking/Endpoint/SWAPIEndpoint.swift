@@ -23,9 +23,9 @@ extension SWAPIPaged {
     
     var url: URL {
         switch self {
-        case .people(let page): return URL(string: "\(baseUrl)\(Keys.people)/\(page)/")!
-        case .vehicles(let page): return URL(string: "\(baseUrl)\(Keys.vehicles)/\(page)/")!
-        case .starships(let page): return URL(string: "\(baseUrl)\(Keys.starships)/\(page)/")!
+        case .people(let page): return URL(string: "\(baseUrl)\(Keys.people)/?page=\(page)")!
+        case .vehicles(let page): return URL(string: "\(baseUrl)\(Keys.vehicles)/?page=\(page)")!
+        case .starships(let page): return URL(string: "\(baseUrl)\(Keys.starships)/?page=\(page)")!
         }
     }
     

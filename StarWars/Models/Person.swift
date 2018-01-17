@@ -14,8 +14,8 @@ struct Person: Model {
     let birthYear: String
     let gender: String?
     
-    let height: Double
-    let mass: Double
+    let height: Int?
+    let mass: Int?
     
     let hairColour: String?
     let eyeColour: String?
@@ -42,34 +42,21 @@ extension Person {
             static let Vehicles = "vehicles"
         }
         
-        if let name = json[Keys.Name] as? String, let birthYear = json[Keys.BirthYear] as? String, let gender = json[Keys.Gender] as? String, let height = json[Keys.Height] as? Double, let mass = json[Keys.Mass] as? Double, let hairColour = json[Keys.HairColour] as? String, let eyeColour = json[Keys.EyeColour] as? String, let skinColour = json[Keys.SkinColour] as? String, let starshipUrls = json[Keys.Starships] as? [String], let vehicleUrls = json[Keys.Vehicles] as? [String] {
+        if let name = json[Keys.Name] as? String, let birthYear = json[Keys.BirthYear] as? String, let gender = json[Keys.Gender] as? String, let height = json[Keys.Height] as? String, let mass = json[Keys.Mass] as? String, let hairColour = json[Keys.HairColour] as? String, let eyeColour = json[Keys.EyeColour] as? String, let skinColour = json[Keys.SkinColour] as? String, let starshipUrls = json[Keys.Starships] as? [String], let vehicleUrls = json[Keys.Vehicles] as? [String] {
             self.name = name
             self.birthYear = birthYear
-            self.height = height
-            self.mass = mass
+            self.gender = gender != Keys.DoesNotExist ? gender : nil
+            
+            self.height = Int(height) != nil ? Int(height)! : nil
+            self.mass = Int(mass) != nil ? Int(mass)! : nil
+            
+            self.hairColour = hairColour != Keys.DoesNotExist ? hairColour : nil
+            self.eyeColour = eyeColour != Keys.DoesNotExist ? eyeColour : nil
             self.skinColour = skinColour
             
             // TODO: URL searching on vehicles and starships
             self.starshipUrls = starshipUrls
             self.vehicleUrls = vehicleUrls
-            
-            if hairColour == Keys.DoesNotExist {
-                self.hairColour = nil
-            } else {
-                self.hairColour = hairColour
-            }
-            
-            if eyeColour == Keys.DoesNotExist {
-                self.eyeColour = nil
-            } else {
-                self.eyeColour = eyeColour
-            }
-            
-            if gender == Keys.DoesNotExist {
-                self.gender = nil
-            } else {
-                self.gender = gender
-            }
         } else {
             return nil
         }

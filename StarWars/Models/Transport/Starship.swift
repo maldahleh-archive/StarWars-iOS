@@ -18,11 +18,11 @@ class Starship: Transport {
         }
         
         if let starshipClass = json[Keys.StarshipClass] as? String, let hyperdriveRating = json[Keys.HyperdriveRating] as? String, let mglt = json[Keys.MGLT] as? String {
-            super.init(json: json)
-            
-            self.transportClass = starshipClass
             self.hyperdriveRating = hyperdriveRating
             self.mglt = mglt
+            
+            super.init(json: json)
+            self.transportClass = starshipClass
         } else {
             return nil
         }
