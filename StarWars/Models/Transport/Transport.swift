@@ -6,8 +6,6 @@
 //  Copyright © 2018 Mohammed Al-Dahleh. All rights reserved.
 //
 
-import Foundation
-
 class Transport {
     let name: String
     let model: String
