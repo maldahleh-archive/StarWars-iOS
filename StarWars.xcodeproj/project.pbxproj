@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A03F760200ECB120066EA42 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F75F200ECB120066EA42 /* Vehicle.swift */; };
 		4AC2EBFD200ECA4500394A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2EBFC200ECA4500394A37 /* AppDelegate.swift */; };
 		4AC2EBFF200ECA4500394A37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2EBFE200ECA4500394A37 /* ViewController.swift */; };
 		4AC2EC02200ECA4500394A37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC2EC00200ECA4500394A37 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A03F75F200ECB120066EA42 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		4AC2EBF9200ECA4500394A37 /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC2EBFC200ECA4500394A37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC2EBFE200ECA4500394A37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A03F75E200ECAFD0066EA42 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A03F75F200ECB120066EA42 /* Vehicle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		4AC2EBF0200ECA4500394A37 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +64,7 @@
 		4AC2EBFB200ECA4500394A37 /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
+				4A03F75E200ECAFD0066EA42 /* Models */,
 				4AC2EBFC200ECA4500394A37 /* AppDelegate.swift */,
 				4AC2EBFE200ECA4500394A37 /* ViewController.swift */,
 				4AC2EC00200ECA4500394A37 /* Main.storyboard */,
@@ -136,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A03F760200ECB120066EA42 /* Vehicle.swift in Sources */,
 				4AC2EBFF200ECA4500394A37 /* ViewController.swift in Sources */,
 				4AC2EBFD200ECA4500394A37 /* AppDelegate.swift in Sources */,
 			);
