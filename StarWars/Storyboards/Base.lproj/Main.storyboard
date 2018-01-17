@@ -18,17 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zay-Py-pme">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zay-Py-pme">
                                 <rect key="frame" x="20" y="70" width="335" height="547"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="bfP-fh-juJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="182.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="222.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-characters" translatesAutoresizingMaskIntoConstraints="NO" id="DD6-J3-aWD">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="132.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="172.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0Q-6H-XIb">
-                                                <rect key="frame" x="0.0" y="132.5" width="335" height="50"/>
+                                                <rect key="frame" x="0.0" y="172.5" width="335" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="4DM-lR-Q50"/>
                                                 </constraints>
@@ -38,14 +38,21 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4E5-VN-OzS">
+                                        <rect key="frame" x="0.0" y="228" width="335" height="1"/>
+                                        <color key="backgroundColor" red="0.32160258293151855" green="0.32939162850379944" blue="0.3372533917427063" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="CiU-aj-RIs"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kia-F4-vu1">
-                                        <rect key="frame" x="0.0" y="182.5" width="335" height="182"/>
+                                        <rect key="frame" x="0.0" y="234.5" width="335" height="150"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-vehicles" translatesAutoresizingMaskIntoConstraints="NO" id="uXq-gX-gpX">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="132"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Db6-P6-btz">
-                                                <rect key="frame" x="0.0" y="132" width="335" height="50"/>
+                                                <rect key="frame" x="0.0" y="100" width="335" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="NUg-MO-Uhh"/>
                                                 </constraints>
@@ -55,14 +62,21 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XKz-QC-SaY">
+                                        <rect key="frame" x="0.0" y="390.5" width="335" height="1"/>
+                                        <color key="backgroundColor" red="0.32160258293151855" green="0.32939162850379944" blue="0.3372533917427063" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="ILd-Nj-71i"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tI6-A9-IbN">
-                                        <rect key="frame" x="0.0" y="364.5" width="335" height="182.5"/>
+                                        <rect key="frame" x="0.0" y="397" width="335" height="150"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-starships" translatesAutoresizingMaskIntoConstraints="NO" id="Qwa-a6-0m1">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="132.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starships" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn8-To-YAC">
-                                                <rect key="frame" x="0.0" y="132.5" width="335" height="50"/>
+                                                <rect key="frame" x="0.0" y="100" width="335" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="amf-Ue-7di"/>
                                                 </constraints>
