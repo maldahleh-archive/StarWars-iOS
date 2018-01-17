@@ -9,6 +9,7 @@
 enum JSONError: Error {
     case requestFailed
     case jsonConversionFailure
+    case jsonParsingFailure(message: String)
     case invalidData
     case responseUnsuccessful
 }

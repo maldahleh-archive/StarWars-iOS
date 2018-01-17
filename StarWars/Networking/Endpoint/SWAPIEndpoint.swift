@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum SWAPI: Endpoint {
+enum SWAPIPaged: Endpoint {
     case people(page: Int)
     case vehicles(page: Int)
     case starships(page: Int)
 }
 
-extension SWAPI {
+extension SWAPIPaged {
     private struct Keys {
         static let vehicles = "vehicles"
         static let starships = "starships"
