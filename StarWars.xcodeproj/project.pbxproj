@@ -62,6 +62,23 @@
 			path = Transport;
 			sourceTree = "<group>";
 		};
+		4A03F768200F15DC0066EA42 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4AC2EC00200ECA4500394A37 /* Main.storyboard */,
+				4AC2EC05200ECA4500394A37 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4A03F769200F15FE0066EA42 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4AC2EBFE200ECA4500394A37 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4AC2EBF0200ECA4500394A37 = {
 			isa = PBXGroup;
 			children = (
@@ -81,12 +98,11 @@
 		4AC2EBFB200ECA4500394A37 /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
-				4A03F75E200ECAFD0066EA42 /* Models */,
-				4AC2EBFC200ECA4500394A37 /* AppDelegate.swift */,
-				4AC2EBFE200ECA4500394A37 /* ViewController.swift */,
-				4AC2EC00200ECA4500394A37 /* Main.storyboard */,
 				4AC2EC03200ECA4500394A37 /* Assets.xcassets */,
-				4AC2EC05200ECA4500394A37 /* LaunchScreen.storyboard */,
+				4A03F75E200ECAFD0066EA42 /* Models */,
+				4A03F768200F15DC0066EA42 /* Storyboards */,
+				4A03F769200F15FE0066EA42 /* ViewControllers */,
+				4AC2EBFC200ECA4500394A37 /* AppDelegate.swift */,
 				4AC2EC08200ECA4500394A37 /* Info.plist */,
 			);
 			path = StarWars;
