@@ -18,6 +18,7 @@ class Vehicle: Transport {
         
         if let vehicleClass = json[Keys.VehicleClass] as? String {
             self.transportClass = vehicleClass
+            
             super.init(json: json)
         } else {
             return nil

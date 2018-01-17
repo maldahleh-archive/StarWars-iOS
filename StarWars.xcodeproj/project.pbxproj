@@ -48,7 +48,6 @@
 			children = (
 				4A03F765200F11180066EA42 /* Transport */,
 				4A03F761200F0D910066EA42 /* Person.swift */,
-				4A03F763200F10C20066EA42 /* Starship.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -58,6 +57,7 @@
 			children = (
 				4A03F766200F11240066EA42 /* Transport.swift */,
 				4A03F75F200ECB120066EA42 /* Vehicle.swift */,
+				4A03F763200F10C20066EA42 /* Starship.swift */,
 			);
 			path = Transport;
 			sourceTree = "<group>";
