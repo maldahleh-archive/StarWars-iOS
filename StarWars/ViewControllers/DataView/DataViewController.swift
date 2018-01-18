@@ -8,35 +8,26 @@
 
 import UIKit
 
-class DataViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class DataViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var pickerView: UIPickerView!
     
-    var downloadedData = [Model]()
+    let dataSource = DataViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pickerView.delegate = self
-        pickerView.dataSource = self
+        pickerView.dataSource = dataSource
     }
 
     // MARK: - Delegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return downloadedData[row].name
-    }
-    
-    // MARK: - Data Source
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return downloadedData.count
+        return dataSource.downloadedData[row].name
     }
     
     // MARK: - Helper
     func updateData(with models: [Model]) {
-        downloadedData = models
+        dataSource.downloadedData = models
         pickerView.reloadAllComponents()
     }
 }
