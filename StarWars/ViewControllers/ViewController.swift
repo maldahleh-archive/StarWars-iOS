@@ -35,7 +35,6 @@ class ViewController: UIViewController {
                 }
                 
                 DispatchQueue.main.async {
-                    print(data)
                     destination.updateData(with: data)
                 }
             }
