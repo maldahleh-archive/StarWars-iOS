@@ -19,28 +19,35 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    // MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? DataViewController else {
+            return
+        }
+        
+        var modelType: Model.Type = Person.self
+        if segue.identifier == "showCharacters" {
+            modelType = Person.self
+        } else if segue.identifier == "showVehicles" {
+            modelType = Vehicle.self
+        }
+        
+        destination.modelType = modelType
+        retrieveDataFor(type: modelType, destination: destination)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCharacters" {
-            let destination = segue.destination as! DataViewController
-            
-            provider.getData(for: Person.self) { data, error in
-                guard let data = data else {
-                    // TODO: Handle error
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    destination.updateData(with: data)
-                }
+    // MARK: - Helper
+    func retrieveDataFor(type: Model.Type, destination: DataViewController) {
+        provider.getData(for: Person.self) { data, error in
+            guard let data = data else {
+                print(error!)
+                return
             }
-        } else if segue.identifier == "showVehicles" {
-            let destination = segue.destination as! DataViewController
-            destination.modelType = Vehicle.self
+            
+            DispatchQueue.main.async {
+                destination.updateData(with: data)
+            }
         }
     }
 }
