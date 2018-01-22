@@ -50,6 +50,16 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
                     label.isHidden = true
                 }
             }
+        } else if model is Person.Type {
+            for label in descriptionLabels {
+                let mapping = CharacterMapping(rawValue: label.tag)
+                
+                if let mapping = mapping {
+                    label.text = mapping.description
+                } else {
+                    label.isHidden = true
+                }
+            }
         }
     }
 }
