@@ -14,6 +14,7 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     
     @IBOutlet weak var smallestLabel: UILabel!
     @IBOutlet weak var largestLabel: UILabel!
+    @IBOutlet weak var trailingDivider: UIView!
     
     var modelType: Model.Type!
     let dataSource = DataViewDataSource()
@@ -30,6 +31,27 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
         
         updateLabels(for: modelType)
     }
+    
+    // MARK: - UI
+    func updateFacts() {
+        if modelType is Vehicle.Type || modelType is Starship.Type {
+            let data = dataSource.downloadedData as! [Transport]
+            let smallest = data.filter({ $0.length != nil }).sorted(by: { $0.length! < $1.length! }).first?.name
+            let largest = data.filter({ $0.length != nil }).sorted(by: { $0.length! > $1.length! }).first?.name
+            
+            if let smallest = smallest {
+                smallestLabel.text = smallest
+            } else {
+                smallestLabel.text = ""
+            }
+            
+            if let largest = largest {
+                largestLabel.text = largest
+            } else {
+                largestLabel.text = ""
+            }
+        }
+    }
 
     // MARK: - Delegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -40,6 +62,8 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     func updateData(with models: [Model]) {
         dataSource.downloadedData = models
         pickerView.reloadAllComponents()
+        
+        updateFacts()
     }
     
     func updateLabels(for model: Model.Type) {
@@ -53,6 +77,8 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
                     label.isHidden = true
                 }
             }
+            
+            trailingDivider.isHidden = true
         } else if model is Person.Type {
             for label in descriptionLabels {
                 let mapping = CharacterMapping(rawValue: label.tag)

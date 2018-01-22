@@ -469,6 +469,7 @@
                         <outlet property="largestLabel" destination="A0P-oC-jK6" id="tbz-UC-rOg"/>
                         <outlet property="pickerView" destination="hzL-mC-ARf" id="dHn-VF-I96"/>
                         <outlet property="smallestLabel" destination="a2d-gc-wCs" id="LpM-BC-udD"/>
+                        <outlet property="trailingDivider" destination="LQy-Uf-Evy" id="efY-oY-ozy"/>
                         <outletCollection property="descriptionLabels" destination="L2M-GI-rfB" collectionClass="NSMutableArray" id="txg-oB-jBe"/>
                         <outletCollection property="descriptionLabels" destination="Oxw-w5-df1" collectionClass="NSMutableArray" id="lIp-Yl-dbL"/>
                         <outletCollection property="descriptionLabels" destination="AQm-zw-Iez" collectionClass="NSMutableArray" id="lQK-Ve-iok"/>
