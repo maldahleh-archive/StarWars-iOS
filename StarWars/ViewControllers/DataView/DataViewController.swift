@@ -9,8 +9,10 @@
 import UIKit
 
 class DataViewController: UIViewController, UIPickerViewDelegate {
+    @IBOutlet var descriptionLabels: [UILabel]!
     @IBOutlet weak var pickerView: UIPickerView!
     
+    var modelType: Model.Type!
     let dataSource = DataViewDataSource()
     
     override func viewDidLoad() {
@@ -18,6 +20,12 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
         
         pickerView.delegate = self
         pickerView.dataSource = dataSource
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        updateLabels(for: modelType)
     }
 
     // MARK: - Delegate
@@ -29,5 +37,19 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     func updateData(with models: [Model]) {
         dataSource.downloadedData = models
         pickerView.reloadAllComponents()
+    }
+    
+    func updateLabels(for model: Model.Type) {
+        if model is Vehicle.Type {
+            for label in descriptionLabels {
+                let mapping = VehicleMapping(rawValue: label.tag)
+                
+                if let mapping = mapping {
+                    label.text = mapping.description
+                } else {
+                    label.isHidden = true
+                }
+            }
+        }
     }
 }

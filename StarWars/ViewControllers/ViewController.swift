@@ -38,6 +38,9 @@ class ViewController: UIViewController {
                     destination.updateData(with: data)
                 }
             }
+        } else if segue.identifier == "showVehicles" {
+            let destination = segue.destination as! DataViewController
+            destination.modelType = Vehicle.self
         }
     }
 }
