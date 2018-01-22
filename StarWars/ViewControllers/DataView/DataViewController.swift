@@ -12,6 +12,9 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet var descriptionLabels: [UILabel]!
     @IBOutlet weak var pickerView: UIPickerView!
     
+    @IBOutlet weak var smallestLabel: UILabel!
+    @IBOutlet weak var largestLabel: UILabel!
+    
     var modelType: Model.Type!
     let dataSource = DataViewDataSource()
     
