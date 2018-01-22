@@ -40,9 +40,9 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     }
     
     func updateLabels(for model: Model.Type) {
-        if model is Vehicle.Type {
+        if model is Vehicle.Type || model is Starship.Type {
             for label in descriptionLabels {
-                let mapping = VehicleMapping(rawValue: label.tag)
+                let mapping = TransportMapping(rawValue: label.tag)
                 
                 if let mapping = mapping {
                     label.text = mapping.description

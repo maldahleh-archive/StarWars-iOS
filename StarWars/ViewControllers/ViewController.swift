@@ -26,11 +26,13 @@ class ViewController: UIViewController {
             return
         }
         
-        var modelType: Model.Type = Person.self
+        var modelType: Model.Type!
         if segue.identifier == "showCharacters" {
             modelType = Person.self
         } else if segue.identifier == "showVehicles" {
             modelType = Vehicle.self
+        } else {
+            modelType = Starship.self
         }
         
         destination.modelType = modelType
@@ -39,7 +41,7 @@ class ViewController: UIViewController {
     
     // MARK: - Helper
     func retrieveDataFor(type: Model.Type, destination: DataViewController) {
-        provider.getData(for: Person.self) { data, error in
+        provider.getData(for: type) { data, error in
             guard let data = data else {
                 print(error!)
                 return

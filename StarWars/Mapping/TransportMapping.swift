@@ -6,9 +6,7 @@
 //  Copyright © 2018 Mohammed Al-Dahleh. All rights reserved.
 //
 
-import Foundation
-
-enum VehicleMapping: Int {
+enum TransportMapping: Int {
     case make = 0
     case cost = 1
     case length = 2
@@ -16,7 +14,7 @@ enum VehicleMapping: Int {
     case crew = 4
 }
 
-extension VehicleMapping {
+extension TransportMapping {
     var description: String {
         switch self {
         case .make: return "Make"

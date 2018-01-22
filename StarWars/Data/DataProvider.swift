@@ -17,7 +17,7 @@ class DataProvider {
     private var vehicles: [Vehicle] = []
     private var starships: [Starship] = []
     
-    func getData<T: Model>(for model: T.Type, completion: @escaping DataCompletionHandler) {
+    func getData(for model: Model.Type, completion: @escaping DataCompletionHandler) {
         if model is Person.Type && !people.isEmpty {
             completion(people, nil)
             return
@@ -36,7 +36,7 @@ class DataProvider {
         downloadFor(page: 1, withModel: model, onCompletion: completion)
     }
     
-    private func downloadFor<T: Model>(page: Int, withModel model: T.Type, onCompletion completion: @escaping DataCompletionHandler) {
+    private func downloadFor(page: Int, withModel model: Model.Type, onCompletion completion: @escaping DataCompletionHandler) {
         var endpoint: SWAPIPaged!
         
         if model is Person.Type {
