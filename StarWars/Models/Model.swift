@@ -8,4 +8,6 @@
 
 protocol Model {
     var name: String { get }
+    
+    func getValue(for field: Int) -> String
 }

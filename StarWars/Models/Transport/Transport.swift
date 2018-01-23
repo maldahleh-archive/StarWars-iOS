@@ -43,4 +43,25 @@ class Transport: Model {
             return nil
         }
     }
+    
+    // MARK: - Field accessor
+    func getValue(for field: Int) -> String {
+        switch field {
+        case 0: return model
+        case 1: return toString(creditCost)
+        case 2: return toString(length)
+        case 3: return toString(transportClass)
+        case 4: return toString(crew)
+        default: return ""
+        }
+    }
+    
+    // MARK: - Helper
+    func toString(_ value: Any?) -> String {
+        if let value = value {
+            return String(describing: value)
+        } else {
+            return "N/A"
+        }
+    }
 }

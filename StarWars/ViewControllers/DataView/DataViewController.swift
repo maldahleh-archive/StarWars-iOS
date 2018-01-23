@@ -10,6 +10,8 @@ import UIKit
 
 class DataViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet var descriptionLabels: [UILabel]!
+    @IBOutlet var dataLabels: [UILabel]!
+    
     @IBOutlet weak var pickerView: UIPickerView!
     
     @IBOutlet weak var smallestLabel: UILabel!
@@ -58,12 +60,25 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
         return dataSource.downloadedData[row].name
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        updateDataLabels(for: row)
+    }
+    
     // MARK: - Helper
     func updateData(with models: [Model]) {
         dataSource.downloadedData = models
         pickerView.reloadAllComponents()
         
         updateFacts()
+        updateDataLabels(for: 0)
+    }
+    
+    func updateDataLabels(for index: Int) {
+        let model = dataSource.downloadedData[index]
+        
+        for label in dataLabels {
+            label.text = model.getValue(for: label.tag)
+        }
     }
     
     func updateLabels(for model: Model.Type) {
