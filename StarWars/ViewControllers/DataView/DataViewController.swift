@@ -41,33 +41,27 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
             let smallest = data.filter({ $0.length != nil }).sorted(by: { $0.length! < $1.length! }).first?.name
             let largest = data.filter({ $0.length != nil }).sorted(by: { $0.length! > $1.length! }).first?.name
             
-            if let smallest = smallest {
-                smallestLabel.text = smallest
-            } else {
-                smallestLabel.text = ""
-            }
-            
-            if let largest = largest {
-                largestLabel.text = largest
-            } else {
-                largestLabel.text = ""
-            }
+            updateFactsWith(smallest: smallest, largest: largest)
         } else {
             let data = dataSource.downloadedData as! [Person]
             let smallest = data.filter({ $0.height != nil }).sorted(by: { $0.height! < $1.height! }).first?.name
             let largest = data.filter({ $0.height != nil }).sorted(by: { $0.height! > $1.height! }).first?.name
             
-            if let smallest = smallest {
-                smallestLabel.text = smallest
-            } else {
-                smallestLabel.text = ""
-            }
-            
-            if let largest = largest {
-                largestLabel.text = largest
-            } else {
-                largestLabel.text = ""
-            }
+            updateFactsWith(smallest: smallest, largest: largest)
+        }
+    }
+    
+    func updateFactsWith(smallest: String?, largest: String?) {
+        if let smallest = smallest {
+            smallestLabel.text = smallest
+        } else {
+            smallestLabel.text = ""
+        }
+        
+        if let largest = largest {
+            largestLabel.text = largest
+        } else {
+            largestLabel.text = ""
         }
     }
 
