@@ -79,15 +79,6 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
             largestLabel.text = ""
         }
     }
-
-    // MARK: - Delegate
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataSource.downloadedData[row].name
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        updateDataLabels(for: row)
-    }
     
     // MARK: - Helper
     func selectedUnit() -> Unit {
@@ -97,7 +88,21 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
         default: return .metric
         }
     }
+}
+
+// MARK: - Picker View Delegate
+extension DataViewController {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return dataSource.downloadedData[row].name
+    }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        updateDataLabels(for: row)
+    }
+}
+
+// MARK: - UI Helpers
+extension DataViewController {
     func updateData(with models: [Model]) {
         dataSource.downloadedData = models
         pickerView.reloadAllComponents()
