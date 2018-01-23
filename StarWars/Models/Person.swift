@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Person: Model {
+class Person: Model {
     let name: String
     
     let birthYear: String
@@ -23,9 +23,7 @@ struct Person: Model {
     
     let starshipUrls: [String]
     let vehicleUrls: [String]
-}
 
-extension Person {
     init?(json: JSON) {
         struct Keys {
             static let DoesNotExist = "n/a"
@@ -71,5 +69,9 @@ extension Person {
         case 4: return toString(hairColour)
         default: return ""
         }
+    }
+    
+    class func header() -> String {
+        return "Characters"
     }
 }

@@ -19,4 +19,8 @@ class Vehicle: Transport {
             return nil
         }
     }
+    
+    override class func header() -> String {
+        return "Vehicles"
+    }
 }

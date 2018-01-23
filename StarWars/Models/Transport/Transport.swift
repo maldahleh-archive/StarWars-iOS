@@ -55,4 +55,8 @@ class Transport: Model {
         default: return ""
         }
     }
+    
+    class func header() -> String {
+        return "Transports"
+    }
 }

@@ -466,6 +466,7 @@
                         <viewLayoutGuide key="safeArea" id="6n1-T7-SNI"/>
                     </view>
                     <connections>
+                        <outlet property="headerLabel" destination="j2s-tt-xQd" id="qVT-iA-Wf7"/>
                         <outlet property="largestLabel" destination="A0P-oC-jK6" id="tbz-UC-rOg"/>
                         <outlet property="pickerView" destination="hzL-mC-ARf" id="dHn-VF-I96"/>
                         <outlet property="smallestLabel" destination="a2d-gc-wCs" id="LpM-BC-udD"/>

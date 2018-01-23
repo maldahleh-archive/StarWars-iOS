@@ -6,8 +6,10 @@
 //  Copyright © 2018 Mohammed Al-Dahleh. All rights reserved.
 //
 
-protocol Model {
+protocol Model: class {
     var name: String { get }
+    
+    static func header() -> String
     
     func getValue(for field: Int) -> String
     func toString(_ value: Any?) -> String

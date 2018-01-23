@@ -9,6 +9,8 @@
 import UIKit
 
 class DataViewController: UIViewController, UIPickerViewDelegate {
+    @IBOutlet weak var headerLabel: UILabel!
+    
     @IBOutlet var descriptionLabels: [UILabel]!
     @IBOutlet var dataLabels: [UILabel]!
     
@@ -94,6 +96,8 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     }
     
     func updateLabels(for model: Model.Type) {
+        headerLabel.text = model.header()
+        
         if model is Vehicle.Type || model is Starship.Type {
             for label in descriptionLabels {
                 let mapping = TransportMapping(rawValue: label.tag)
