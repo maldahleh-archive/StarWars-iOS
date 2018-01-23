@@ -142,21 +142,6 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
-		4AAB9F262016823900981054 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				4AAB9F272016824800981054 /* Vehicles */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		4AAB9F272016824800981054 /* Vehicles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vehicles;
-			sourceTree = "<group>";
-		};
 		4AAB9F282016886600981054 /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +194,6 @@
 				4A03F76A200F17EC0066EA42 /* Networking */,
 				4A03F768200F15DC0066EA42 /* Storyboards */,
 				4A03F769200F15FE0066EA42 /* ViewControllers */,
-				4AAB9F262016823900981054 /* ViewModels */,
 				4AC2EBFC200ECA4500394A37 /* AppDelegate.swift */,
 				4AC2EC08200ECA4500394A37 /* Info.plist */,
 			);

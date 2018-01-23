@@ -132,6 +132,7 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
                 }
             }
             
+            currencySelector.isHidden = false
             trailingDivider.isHidden = true
         } else if model is Person.Type {
             for label in descriptionLabels {
@@ -143,6 +144,9 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
                     label.isHidden = true
                 }
             }
+            
+            currencySelector.isHidden = true
+            trailingDivider.isHidden = false
         }
     }
 }
