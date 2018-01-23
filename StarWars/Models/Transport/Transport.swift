@@ -17,6 +17,10 @@ class Transport: Model {
     
     let pilotsUrls: [String]
     
+    class func header() -> String {
+        return "Transports"
+    }
+    
     init?(json: JSON) {
         struct Keys {
             static let Name = "name"
@@ -43,8 +47,10 @@ class Transport: Model {
             return nil
         }
     }
-    
-    // MARK: - Field accessor
+}
+
+// MARK: - Protocol implementation
+extension Transport {
     func getValue(for field: Int, with unit: Unit) -> String {
         switch field {
         case 0: return model
@@ -57,19 +63,6 @@ class Transport: Model {
     }
     
     func length(for unit: Unit) -> String {
-        let lengthVal = toString(length)
-        
-        if lengthVal != "N/A" {
-            switch unit {
-            case .metric: return String(format: "%.2f", Double(length!) / 100.0) + "m"
-            case .imperial: return String(format: "%.2f", Double(length!) / 30.48) + "ft"
-            }
-        }
-        
-        return lengthVal
-    }
-    
-    class func header() -> String {
-        return "Transports"
+        return format(length, withUnit: unit)
     }
 }

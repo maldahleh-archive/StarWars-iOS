@@ -23,6 +23,10 @@ class Person: Model {
     
     let starshipUrls: [String]
     let vehicleUrls: [String]
+    
+    class func header() -> String {
+        return "Characters"
+    }
 
     init?(json: JSON) {
         struct Keys {
@@ -59,7 +63,10 @@ class Person: Model {
             return nil
         }
     }
-    
+}
+
+// MARK: - Protocol implementation
+extension Person {
     func getValue(for field: Int, with unit: Unit) -> String {
         switch field {
         case 0: return birthYear
@@ -72,19 +79,6 @@ class Person: Model {
     }
     
     func length(for unit: Unit) -> String {
-        let heightVal = toString(height)
-        
-        if heightVal != "N/A" {
-            switch unit {
-            case .metric: return String(format: "%.2f", Double(height!) / 100.0) + "m"
-            case .imperial: return String(format: "%.2f", Double(height!) / 30.48) + "ft"
-            }
-        }
-        
-        return heightVal
-    }
-    
-    class func header() -> String {
-        return "Characters"
+        return format(height, withUnit: unit)
     }
 }

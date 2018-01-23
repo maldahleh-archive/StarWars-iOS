@@ -7,6 +7,10 @@
 //
 
 class Vehicle: Transport {
+    override class func header() -> String {
+        return "Vehicles"
+    }
+    
     override init?(json: JSON) {
         struct Keys {
             static let VehicleClass = "vehicle_class"
@@ -18,9 +22,5 @@ class Vehicle: Transport {
         } else {
             return nil
         }
-    }
-    
-    override class func header() -> String {
-        return "Vehicles"
     }
 }
