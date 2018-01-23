@@ -20,7 +20,7 @@ extension CharacterMapping {
     var description: String {
         switch self {
         case .born: return "Born"
-        case .home: return "Home"
+        case .home: return "Gender"
         case .height: return "Height"
         case .eyes: return "Eyes"
         case .hair: return "Hair"

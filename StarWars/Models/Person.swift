@@ -63,7 +63,13 @@ extension Person {
     }
     
     func getValue(for field: Int) -> String {
-        // TODO: Implement
-        return ""
+        switch field {
+        case 0: return birthYear
+        case 1: return toString(gender)
+        case 2: return toString(height)
+        case 3: return toString(eyeColour)
+        case 4: return toString(hairColour)
+        default: return ""
+        }
     }
 }

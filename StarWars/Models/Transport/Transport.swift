@@ -55,13 +55,4 @@ class Transport: Model {
         default: return ""
         }
     }
-    
-    // MARK: - Helper
-    func toString(_ value: Any?) -> String {
-        if let value = value {
-            return String(describing: value)
-        } else {
-            return "N/A"
-        }
-    }
 }

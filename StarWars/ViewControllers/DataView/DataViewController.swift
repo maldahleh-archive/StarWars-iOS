@@ -52,6 +52,22 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
             } else {
                 largestLabel.text = ""
             }
+        } else {
+            let data = dataSource.downloadedData as! [Person]
+            let smallest = data.filter({ $0.height != nil }).sorted(by: { $0.height! < $1.height! }).first?.name
+            let largest = data.filter({ $0.height != nil }).sorted(by: { $0.height! > $1.height! }).first?.name
+            
+            if let smallest = smallest {
+                smallestLabel.text = smallest
+            } else {
+                smallestLabel.text = ""
+            }
+            
+            if let largest = largest {
+                largestLabel.text = largest
+            } else {
+                largestLabel.text = ""
+            }
         }
     }
 
@@ -74,10 +90,12 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     }
     
     func updateDataLabels(for index: Int) {
-        let model = dataSource.downloadedData[index]
-        
-        for label in dataLabels {
-            label.text = model.getValue(for: label.tag)
+        if !dataSource.downloadedData.isEmpty {
+            let model = dataSource.downloadedData[index]
+            
+            for label in dataLabels {
+                label.text = model.getValue(for: label.tag)
+            }
         }
     }
     

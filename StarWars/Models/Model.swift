@@ -10,4 +10,15 @@ protocol Model {
     var name: String { get }
     
     func getValue(for field: Int) -> String
+    func toString(_ value: Any?) -> String
+}
+
+extension Model {
+    func toString(_ value: Any?) -> String {
+        if let value = value {
+            return String(describing: value)
+        } else {
+            return "N/A"
+        }
+    }
 }
