@@ -14,6 +14,8 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet var descriptionLabels: [UILabel]!
     @IBOutlet var dataLabels: [UILabel]!
     
+    @IBOutlet weak var currencySelector: UISegmentedControl!
+    @IBOutlet weak var unitSelector: UISegmentedControl!
     @IBOutlet weak var pickerView: UIPickerView!
     
     @IBOutlet weak var smallestLabel: UILabel!
@@ -21,6 +23,8 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var trailingDivider: UIView!
     
     var modelType: Model.Type!
+    var selectedModel: Model!
+    
     let dataSource = DataViewDataSource()
     
     override func viewDidLoad() {
@@ -34,6 +38,15 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
         super.viewDidAppear(animated)
         
         updateLabels(for: modelType)
+    }
+    
+    // MARK: - Actions
+    @IBAction func unitValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: dataLabels[2].text = selectedModel.length(for: .imperial)
+        case 1: dataLabels[2].text = selectedModel.length(for: .metric)
+        default: return
+        }
     }
     
     // MARK: - UI
@@ -77,6 +90,14 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     }
     
     // MARK: - Helper
+    func selectedUnit() -> Unit {
+        switch unitSelector.selectedSegmentIndex {
+        case 0: return .imperial
+        case 1: return .metric
+        default: return .metric
+        }
+    }
+    
     func updateData(with models: [Model]) {
         dataSource.downloadedData = models
         pickerView.reloadAllComponents()
@@ -90,8 +111,10 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
             let model = dataSource.downloadedData[index]
             
             for label in dataLabels {
-                label.text = model.getValue(for: label.tag)
+                label.text = model.getValue(for: label.tag, with: selectedUnit())
             }
+            
+            selectedModel = model
         }
     }
     

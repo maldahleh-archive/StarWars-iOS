@@ -60,15 +60,28 @@ class Person: Model {
         }
     }
     
-    func getValue(for field: Int) -> String {
+    func getValue(for field: Int, with unit: Unit) -> String {
         switch field {
         case 0: return birthYear
         case 1: return toString(gender)
-        case 2: return toString(height)
+        case 2: return length(for: unit)
         case 3: return toString(eyeColour)
         case 4: return toString(hairColour)
         default: return ""
         }
+    }
+    
+    func length(for unit: Unit) -> String {
+        let heightVal = toString(height)
+        
+        if heightVal != "N/A" {
+            switch unit {
+            case .metric: return String(format: "%.2f", Double(height!) / 100.0) + "m"
+            case .imperial: return String(format: "%.2f", Double(height!) / 30.48) + "ft"
+            }
+        }
+        
+        return heightVal
     }
     
     class func header() -> String {

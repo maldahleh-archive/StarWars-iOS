@@ -300,6 +300,9 @@
                                                                     <segment title="Metric"/>
                                                                 </segments>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <connections>
+                                                                    <action selector="unitValueChanged:" destination="LOC-aa-1mo" eventType="valueChanged" id="129-PZ-RnM"/>
+                                                                </connections>
                                                             </segmentedControl>
                                                         </subviews>
                                                     </stackView>
@@ -479,11 +482,13 @@
                         <viewLayoutGuide key="safeArea" id="6n1-T7-SNI"/>
                     </view>
                     <connections>
+                        <outlet property="currencySelector" destination="eU8-rD-22m" id="Iy8-hD-rNc"/>
                         <outlet property="headerLabel" destination="j2s-tt-xQd" id="qVT-iA-Wf7"/>
                         <outlet property="largestLabel" destination="A0P-oC-jK6" id="tbz-UC-rOg"/>
                         <outlet property="pickerView" destination="hzL-mC-ARf" id="dHn-VF-I96"/>
                         <outlet property="smallestLabel" destination="a2d-gc-wCs" id="LpM-BC-udD"/>
                         <outlet property="trailingDivider" destination="LQy-Uf-Evy" id="efY-oY-ozy"/>
+                        <outlet property="unitSelector" destination="kAu-vC-hUH" id="dJo-41-hKB"/>
                         <outletCollection property="descriptionLabels" destination="L2M-GI-rfB" collectionClass="NSMutableArray" id="txg-oB-jBe"/>
                         <outletCollection property="descriptionLabels" destination="Oxw-w5-df1" collectionClass="NSMutableArray" id="lIp-Yl-dbL"/>
                         <outletCollection property="descriptionLabels" destination="AQm-zw-Iez" collectionClass="NSMutableArray" id="lQK-Ve-iok"/>

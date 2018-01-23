@@ -45,15 +45,28 @@ class Transport: Model {
     }
     
     // MARK: - Field accessor
-    func getValue(for field: Int) -> String {
+    func getValue(for field: Int, with unit: Unit) -> String {
         switch field {
         case 0: return model
         case 1: return toString(creditCost)
-        case 2: return toString(length)
+        case 2: return length(for: unit)
         case 3: return toString(transportClass)
         case 4: return toString(crew)
         default: return ""
         }
+    }
+    
+    func length(for unit: Unit) -> String {
+        let lengthVal = toString(length)
+        
+        if lengthVal != "N/A" {
+            switch unit {
+            case .metric: return String(format: "%.2f", Double(length!) / 100.0) + "m"
+            case .imperial: return String(format: "%.2f", Double(length!) / 30.48) + "ft"
+            }
+        }
+        
+        return lengthVal
     }
     
     class func header() -> String {

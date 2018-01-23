@@ -18,6 +18,7 @@
 		4AAA5A19200F1DB900320613 /* SWAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA5A18200F1DB900320613 /* SWAPIEndpoint.swift */; };
 		4AAB9F2A2016889600981054 /* TransportMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAB9F292016889600981054 /* TransportMapping.swift */; };
 		4AAB9F2C201693A800981054 /* CharacterMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAB9F2B201693A800981054 /* CharacterMapping.swift */; };
+		4AAB9F2E201707DB00981054 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAB9F2D201707DB00981054 /* Unit.swift */; };
 		4AC2E0AE200FB93500976193 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2E0AD200FB93500976193 /* DataProvider.swift */; };
 		4AC2E0B0200FB9E400976193 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2E0AF200FB9E400976193 /* Model.swift */; };
 		4AC2E0B320105E1800976193 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2E0B220105E1800976193 /* DataViewController.swift */; };
@@ -41,6 +42,7 @@
 		4AAA5A18200F1DB900320613 /* SWAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIEndpoint.swift; sourceTree = "<group>"; };
 		4AAB9F292016889600981054 /* TransportMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportMapping.swift; sourceTree = "<group>"; };
 		4AAB9F2B201693A800981054 /* CharacterMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMapping.swift; sourceTree = "<group>"; };
+		4AAB9F2D201707DB00981054 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		4AC2E0AD200FB93500976193 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		4AC2E0AF200FB9E400976193 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4AC2E0B220105E1800976193 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				4A03F765200F11180066EA42 /* Transport */,
 				4AC2E0AF200FB9E400976193 /* Model.swift */,
 				4A03F761200F0D910066EA42 /* Person.swift */,
+				4AAB9F2D201707DB00981054 /* Unit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				4A03F76C200F19A10066EA42 /* JSONDownloader.swift in Sources */,
 				4A03F760200ECB120066EA42 /* Vehicle.swift in Sources */,
 				4AAB9F2C201693A800981054 /* CharacterMapping.swift in Sources */,
+				4AAB9F2E201707DB00981054 /* Unit.swift in Sources */,
 				4A03F767200F11240066EA42 /* Transport.swift in Sources */,
 				4A03F764200F10C20066EA42 /* Starship.swift in Sources */,
 				4AAB9F2A2016889600981054 /* TransportMapping.swift in Sources */,

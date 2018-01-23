@@ -11,7 +11,8 @@ protocol Model: class {
     
     static func header() -> String
     
-    func getValue(for field: Int) -> String
+    func getValue(for field: Int, with unit: Unit) -> String
+    func length(for unit: Unit) -> String
     func toString(_ value: Any?) -> String
 }
 
