@@ -25,6 +25,7 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     var modelType: Model.Type!
     var selectedModel: Model!
     
+    var dataProvider: DataProvider!
     let dataSource = DataViewDataSource()
     
     override func viewDidLoad() {
@@ -102,26 +103,6 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
             largestLabel.text = ""
         }
     }
-    
-    // MARK: - Helper
-    func selectedUnit() -> Unit {
-        switch unitSelector.selectedSegmentIndex {
-        case 0: return .imperial
-        case 1: return .metric
-        default: return .metric
-        }
-    }
-    
-    func label(for tag: Int) -> UILabel {
-        var dataLabel: UILabel!
-        for label in dataLabels {
-            if label.tag == tag {
-                dataLabel = label
-            }
-        }
-        
-        return dataLabel
-    }
 }
 
 // MARK: - Picker View Delegate
@@ -143,6 +124,11 @@ extension DataViewController {
         
         updateFacts()
         updateDataLabels(for: 0)
+        
+        if modelType is Person.Type {
+            updateSecondaryLabels(forModel: Vehicle.self, withLabel: 5)
+            updateSecondaryLabels(forModel: Starship.self, withLabel: 6)
+        }
     }
     
     func updateDataLabels(for index: Int) {
@@ -188,6 +174,45 @@ extension DataViewController {
             
             currencySelector.isHidden = true
             trailingDivider.isHidden = false
+        }
+    }
+}
+
+// MARK: - Helper
+extension DataViewController {
+    func selectedUnit() -> Unit {
+        switch unitSelector.selectedSegmentIndex {
+        case 0: return .imperial
+        case 1: return .metric
+        default: return .metric
+        }
+    }
+    
+    func label(for tag: Int) -> UILabel {
+        var dataLabel: UILabel!
+        for label in dataLabels {
+            if label.tag == tag {
+                dataLabel = label
+            }
+        }
+        
+        return dataLabel
+    }
+    
+    func updateSecondaryLabels(forModel model: Model.Type, withLabel tag: Int) {
+        dataProvider.getData(for: model) { data, error in
+            guard let data = data else { fatalError("Data failed, \(error!.localizedDescription)") }
+            
+            DispatchQueue.main.async {
+                let downloadedData = data as! [Transport]
+                
+                var builtString = ""
+                for transport in downloadedData {
+                    builtString += "\(transport.name) "
+                }
+                
+                self.label(for: tag).text = builtString
+            }
         }
     }
 }

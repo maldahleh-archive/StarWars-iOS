@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         }
         
         destination.modelType = modelType
+        destination.dataProvider = provider
         retrieveDataFor(type: modelType, destination: destination)
     }
     
