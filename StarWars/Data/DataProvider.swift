@@ -8,14 +8,14 @@
 
 import Foundation
 
-typealias DataCompletionHandler = ([Model]?, JSONError?) -> Void
+typealias DataCompletionHandler = ([String: Model]?, JSONError?) -> Void
 
 class DataProvider {
     let client = SWAPIClient()
     
-    private var people: [Person] = []
-    private var vehicles: [Vehicle] = []
-    private var starships: [Starship] = []
+    private var people: [String: Person] = [:]
+    private var vehicles: [String: Vehicle] = [:]
+    private var starships: [String: Starship] = [:]
     
     func getData(for model: Model.Type, completion: @escaping DataCompletionHandler) {
         if model is Person.Type && !people.isEmpty {
@@ -50,7 +50,8 @@ class DataProvider {
                 
                 for jsonResult in result.jsonResults {
                     if let person = Person(json: jsonResult) {
-                        self.people.append(person)
+                        let url = person.personUrl
+                        self.people[url] = person
                     } else {
                         completion(nil, .invalidData)
                     }
@@ -73,7 +74,8 @@ class DataProvider {
                 
                 for jsonResult in result.jsonResults {
                     if let vehicle = Vehicle(json: jsonResult) {
-                        self.vehicles.append(vehicle)
+                        let url = vehicle.url
+                        self.vehicles[url] = vehicle
                     } else {
                         completion(nil, .invalidData)
                     }
@@ -96,7 +98,8 @@ class DataProvider {
                 
                 for jsonResult in result.jsonResults {
                     if let starship = Starship(json: jsonResult) {
-                        self.starships.append(starship)
+                        let url = starship.url
+                        self.starships[url] = starship
                     } else {
                         completion(nil, .invalidData)
                     }

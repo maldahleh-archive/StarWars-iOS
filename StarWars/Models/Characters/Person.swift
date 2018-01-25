@@ -21,6 +21,7 @@ class Person: Model {
     let eyeColour: String?
     let skinColour: String
     
+    let personUrl: String
     let starshipUrls: [String]
     let vehicleUrls: [String]
     
@@ -40,11 +41,12 @@ class Person: Model {
             static let HairColour = "hair_color"
             static let EyeColour = "eye_color"
             static let SkinColour = "skin_color"
+            static let URL = "url"
             static let Starships = "starships"
             static let Vehicles = "vehicles"
         }
         
-        if let name = json[Keys.Name] as? String, let birthYear = json[Keys.BirthYear] as? String, let gender = json[Keys.Gender] as? String, let height = json[Keys.Height] as? String, let mass = json[Keys.Mass] as? String, let hairColour = json[Keys.HairColour] as? String, let eyeColour = json[Keys.EyeColour] as? String, let skinColour = json[Keys.SkinColour] as? String, let starshipUrls = json[Keys.Starships] as? [String], let vehicleUrls = json[Keys.Vehicles] as? [String] {
+        if let name = json[Keys.Name] as? String, let birthYear = json[Keys.BirthYear] as? String, let gender = json[Keys.Gender] as? String, let height = json[Keys.Height] as? String, let mass = json[Keys.Mass] as? String, let hairColour = json[Keys.HairColour] as? String, let eyeColour = json[Keys.EyeColour] as? String, let skinColour = json[Keys.SkinColour] as? String, let url = json[Keys.URL] as? String, let starshipUrls = json[Keys.Starships] as? [String], let vehicleUrls = json[Keys.Vehicles] as? [String] {
             self.name = name
             self.birthYear = birthYear
             self.gender = gender != Keys.DoesNotExist ? gender : nil
@@ -56,6 +58,7 @@ class Person: Model {
             self.eyeColour = eyeColour != Keys.DoesNotExist ? eyeColour : nil
             self.skinColour = skinColour
             
+            self.personUrl = url
             // TODO: URL searching on vehicles and starships
             self.starshipUrls = starshipUrls
             self.vehicleUrls = vehicleUrls
