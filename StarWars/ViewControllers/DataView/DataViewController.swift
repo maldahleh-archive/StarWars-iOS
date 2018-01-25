@@ -47,19 +47,19 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
         let dataValue = selectedModel.getValue(for: 1, with: selectedUnit())
         
         if dataValue != "N/A" {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            CreditController.getCreditConversion(for: self) { rate in
-                guard let rate = rate else {
-                    sender.selectedSegmentIndex = 1
-                    return
-                }
+            switch sender.selectedSegmentIndex {
+            case 0:
+                CreditController.getCreditConversion(for: self) { rate in
+                    guard let rate = rate else {
+                        sender.selectedSegmentIndex = 1
+                        return
+                    }
                 
-                dataLabel.text = "\(Double(dataValue)! * rate)"
+                    dataLabel.text = "\(Double(dataValue)! * rate)"
+                }
+            case 1: dataLabel.text = dataValue
+            default: return
             }
-        case 1: dataLabel.text = dataValue
-        default: return
-        }
         }
     }
     
