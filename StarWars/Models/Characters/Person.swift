@@ -21,6 +21,7 @@ class Person: Model {
     let eyeColour: String?
     let skinColour: String
     
+    let url: String? = nil
     let starshipUrls: [String]
     let vehicleUrls: [String]
     

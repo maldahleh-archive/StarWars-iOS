@@ -15,6 +15,7 @@ class Transport: Model {
     
     let creditCost: Int?
     
+    let url: String?
     let pilotsUrls: [String]
     
     class func header() -> String {
@@ -28,10 +29,11 @@ class Transport: Model {
             static let Length = "length"
             static let CreditsCost = "cost_in_credits"
             static let Crew = "crew"
+            static let Url = "url"
             static let Pilots = "pilots"
         }
         
-        if let name = json[Keys.Name] as? String, let model = json[Keys.Model] as? String, let length = json[Keys.Length] as? String, let crew = json[Keys.Crew] as? String, let creditCost = json[Keys.CreditsCost] as? String, let pilots = json[Keys.Pilots] as? [String] {
+        if let name = json[Keys.Name] as? String, let model = json[Keys.Model] as? String, let length = json[Keys.Length] as? String, let crew = json[Keys.Crew] as? String, let creditCost = json[Keys.CreditsCost] as? String, let url = json[Keys.Url] as? String, let pilots = json[Keys.Pilots] as? [String] {
             self.name = name
             self.model = model
             
@@ -41,7 +43,7 @@ class Transport: Model {
             
             self.creditCost = Int(creditCost)
             
-            // TODO: Handle Pilot URLs
+            self.url = url
             self.pilotsUrls = pilots
         } else {
             return nil

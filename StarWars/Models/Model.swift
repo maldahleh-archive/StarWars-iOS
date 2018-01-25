@@ -8,6 +8,7 @@
 
 protocol Model: class {
     var name: String { get }
+    var url: String? { get }
     
     static func header() -> String
     
