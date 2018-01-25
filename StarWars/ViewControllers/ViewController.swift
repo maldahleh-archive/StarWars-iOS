@@ -43,8 +43,7 @@ class ViewController: UIViewController {
     func retrieveDataFor(type: Model.Type, destination: DataViewController) {
         provider.getData(for: type) { data, error in
             guard let data = data else {
-                print(error!)
-                return
+                fatalError(error!.localizedDescription)
             }
             
             DispatchQueue.main.async {
