@@ -124,11 +124,6 @@ extension DataViewController {
         
         updateFacts()
         updateDataLabels(for: 0)
-        
-        if modelType is Person.Type {
-            updateSecondaryLabels(forModel: Vehicle.self, withLabel: 5)
-            updateSecondaryLabels(forModel: Starship.self, withLabel: 6)
-        }
     }
     
     func updateDataLabels(for index: Int) {
@@ -142,6 +137,11 @@ extension DataViewController {
             }
             
             selectedModel = model
+        }
+        
+        if modelType is Person.Type {
+            updateSecondaryLabels(forModel: Vehicle.self, withLabel: 5)
+            updateSecondaryLabels(forModel: Starship.self, withLabel: 6)
         }
     }
     
@@ -176,6 +176,34 @@ extension DataViewController {
             trailingDivider.isHidden = false
         }
     }
+    
+    func updateSecondaryLabels(forModel model: Model.Type, withLabel tag: Int) {
+        dataProvider.getData(for: model) { data, error in
+            guard let data = data else { fatalError("Data failed, \(error!.localizedDescription)") }
+            
+            DispatchQueue.main.async {
+                let downloadedData = data as! [Transport]
+                let selected = self.selectedModel as! Person
+                
+                var builtString = ""
+                if model is Vehicle.Type {
+                    for transport in downloadedData {
+                        if selected.vehicleUrls.contains(transport.url!) {
+                            builtString += "\(transport.name), "
+                        }
+                    }
+                } else if model is Starship.Type {
+                    for transport in downloadedData {
+                        if selected.starshipUrls.contains(transport.url!) {
+                            builtString += "\(transport.name), "
+                        }
+                    }
+                }
+                
+                self.label(for: tag).text = String(builtString.dropLast(2))
+            }
+        }
+    }
 }
 
 // MARK: - Helper
@@ -197,22 +225,5 @@ extension DataViewController {
         }
         
         return dataLabel
-    }
-    
-    func updateSecondaryLabels(forModel model: Model.Type, withLabel tag: Int) {
-        dataProvider.getData(for: model) { data, error in
-            guard let data = data else { fatalError("Data failed, \(error!.localizedDescription)") }
-            
-            DispatchQueue.main.async {
-                let downloadedData = data as! [Transport]
-                
-                var builtString = ""
-                for transport in downloadedData {
-                    builtString += "\(transport.name) "
-                }
-                
-                self.label(for: tag).text = builtString
-            }
-        }
     }
 }
