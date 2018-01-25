@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-typealias IntCompletionHandler = (Int?) -> Void
+typealias CompletionHandler = (Double?) -> Void
 
 class CreditController {
-    static var CreditConversion: Int?
+    static var CreditConversion: Double?
     
-    static func getCreditConversion(for controller: UIViewController, completion: @escaping IntCompletionHandler) {
+    static func getCreditConversion(for controller: UIViewController, completion: @escaping CompletionHandler) {
         if let creditConversion = CreditConversion {
             completion(creditConversion)
         } else {
@@ -24,8 +24,8 @@ class CreditController {
         }
     }
     
-    private static func displayConversionBox(for controller: UIViewController, completion: @escaping IntCompletionHandler) {
-        let alertController = UIAlertController(title: "Credit Conversion", message: "Enter an integer conversion value:", preferredStyle: .alert)
+    private static func displayConversionBox(for controller: UIViewController, completion: @escaping CompletionHandler) {
+        let alertController = UIAlertController(title: "Credit Conversion", message: "Enter a conversion value:", preferredStyle: .alert)
         
         let setAction = UIAlertAction(title: "Set", style: .default, handler: {
             alert -> Void in
@@ -39,19 +39,20 @@ class CreditController {
                 return
             }
             
-            guard let conversionInt = Int(conversionRate) else {
-                displayWarning(withMessage: "Integer Required!", forController: controller)
+            guard let conversionDouble = Double(conversionRate) else {
+                displayWarning(withMessage: "Double Required!", forController: controller)
                 completion(nil)
                 return
             }
             
-            if conversionInt <= 0 {
+            if conversionDouble <= 0 {
                 displayWarning(withMessage: "You must enter a positive number!", forController: controller)
                 completion(nil)
                 return
             }
             
-            completion(conversionInt)
+            CreditConversion = conversionDouble
+            completion(conversionDouble)
         })
         
         alertController.addTextField { (textField : UITextField!) -> Void in

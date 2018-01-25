@@ -41,10 +41,33 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
     }
     
     // MARK: - Actions
-    @IBAction func unitValueChanged(_ sender: UISegmentedControl) {
+    @IBAction func currencyValueChanged(_ sender: UISegmentedControl) {
+        let dataLabel = label(for: 1)
+        let dataValue = selectedModel.getValue(for: 1, with: selectedUnit())
+        
+        if dataValue != "N/A" {
         switch sender.selectedSegmentIndex {
-        case 0: dataLabels[2].text = selectedModel.length(for: .imperial)
-        case 1: dataLabels[2].text = selectedModel.length(for: .metric)
+        case 0:
+            CreditController.getCreditConversion(for: self) { rate in
+                guard let rate = rate else {
+                    sender.selectedSegmentIndex = 1
+                    return
+                }
+                
+                dataLabel.text = "\(Double(dataValue)! * rate)"
+            }
+        case 1: dataLabel.text = dataValue
+        default: return
+        }
+        }
+    }
+    
+    @IBAction func unitValueChanged(_ sender: UISegmentedControl) {
+        let dataLabel = label(for: 2)
+        
+        switch sender.selectedSegmentIndex {
+        case 0: dataLabel.text = selectedModel.length(for: .imperial)
+        case 1: dataLabel.text = selectedModel.length(for: .metric)
         default: return
         }
     }
@@ -88,6 +111,17 @@ class DataViewController: UIViewController, UIPickerViewDelegate {
         default: return .metric
         }
     }
+    
+    func label(for tag: Int) -> UILabel {
+        var dataLabel: UILabel!
+        for label in dataLabels {
+            if label.tag == tag {
+                dataLabel = label
+            }
+        }
+        
+        return dataLabel
+    }
 }
 
 // MARK: - Picker View Delegate
@@ -112,6 +146,8 @@ extension DataViewController {
     }
     
     func updateDataLabels(for index: Int) {
+        currencySelector.selectedSegmentIndex = 1
+        
         if !dataSource.downloadedData.isEmpty {
             let model = dataSource.downloadedData[index]
             
