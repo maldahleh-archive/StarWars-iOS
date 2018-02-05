@@ -1,9 +1,6 @@
 # StarWars
 StarWars is an iOS app that displays information on characters, vehicles and starships from the SWAPI.
 
-## Screenshots
-To Be Added
-
 ## Project Instructions
 A short time ago, in a Galaxy not so far away, you were taught about APIs. Now is your chance to harness the force (of newfound knowledge) and put the Star Wars API (SWAPI) to use in an iOS app.
 
